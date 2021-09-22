@@ -2,7 +2,7 @@ FROM alpine:edge
 
 RUN apk update && \
     apk add --no-cache ca-certificates caddy tor wget && \
-    wget -qO 11 https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip | busybox unzip 11 && \
+    wget -O - https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-64.zip | busybox unzip - && \
     chmod +x /xray && \
     rm -rf /var/cache/apk/*
 
